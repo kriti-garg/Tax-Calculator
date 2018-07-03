@@ -7,7 +7,7 @@
     tools:context="com.kriti.taxcalculator.IncomeActivity">
     <!--android:layout_marginStart="67dp"-->
     <EditText
-        android:id="@+id/edit1"
+        android:id="@+id/editIncome"
         android:layout_width="176dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
@@ -17,13 +17,13 @@
         android:labelFor="@+id/edit1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text1"
+        app:layout_constraintStart_toEndOf="@+id/inputIncome"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.101" />
     <!-- android:text="@string/textview"-->
 
     <TextView
-        android:id="@+id/text1"
+        android:id="@+id/inputIncome"
         android:layout_width="133dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -33,7 +33,7 @@
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/edit1"
+        app:layout_constraintEnd_toStartOf="@+id/editIncome"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -58,7 +58,7 @@
         tools:text="Amount" />
 
     <TextView
-        android:id="@+id/text2"
+        android:id="@+id/textarea"
         android:layout_width="346dp"
         android:layout_height="176dp"
         android:layout_marginBottom="8dp"

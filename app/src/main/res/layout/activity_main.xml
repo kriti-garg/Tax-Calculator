@@ -4,31 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kriti.taxcalculator.MainActivity">
-    <Button
-        android:id="@+id/button"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Calculate Income tax"
-        android:shadowColor="@android:color/holo_orange_light"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="95dp"
-        android:padding="5dp"
-        tools:layout_editor_absoluteX="30dp"
-        />
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="gst calculate"
-        android:gravity="center"
-        android:shadowColor="@android:color/holo_orange_light"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:padding="5dp"
-        tools:layout_editor_absoluteY="368dp"
-        tools:layout_editor_absoluteX="30dp"/>
-</android.support.constraint.ConstraintLayout>
+    tools:context="index1.developer.acadview.com.taxcalculator.MainActivity">
 
+    <Button
+        android:id="@+id/income"
+        android:layout_width="280dp"
+        android:layout_height="53dp"
+        android:background="@android:color/holo_orange_light"
+        android:text="@string/button1"
+        app:layout_constraintBottom_toTopOf="@+id/gst"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42"
+        tools:text="Income Tax" />
+
+    <Button
+        android:id="@+id/gst"
+        android:layout_width="284dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/holo_orange_light"
+        android:text="@string/button2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/income"
+        tools:text="GST Calculate" />
+</android.support.constraint.ConstraintLayout>

@@ -40,19 +40,19 @@ public class IncomeActivity extends AppCompatActivity {
 
     }
     void check(){
-        if(intIncome>=0 || intIncome<=250000){
+        if(intIncome>=0 && intIncome<=250000){
             tax = 0.0;
             finalValue = tax + intIncome;
             tv_textarea.setText("Tax on your income " + editIncome + " = " + tax + "\n\n" + "Total income (Inclusion of Tax)" + " = " + finalValue);
 
         }else
-            if(intIncome>250000.0 || intIncome<=500000.0){
+            if(intIncome>250000.0 && intIncome<=500000.0){
             tax = (0.05*(intIncome-250000.0));
             finalValue = tax + intIncome;
             tv_textarea.setText("Tax on your income " + editIncome + " = " + tax + "\n\n" + "Total income (Inclusion of Tax)" + " = " + finalValue);
             }
         else
-            if(intIncome>500000.0 || intIncome<=1000000.0){
+            if(intIncome>500000.0 && intIncome<=1000000.0){
             tax = 25000 + 0.20*(intIncome-500000);
             finalValue = tax + intIncome;
             tv_textarea.setText("Tax on your income " + editIncome + " = " + tax + "\n\n" + "Total income (Inclusion of Tax)" + " = " + finalValue);
@@ -63,7 +63,6 @@ public class IncomeActivity extends AppCompatActivity {
                 finalValue = tax + intIncome;
                 tv_textarea.setText("Tax on your income " + editIncome + " = " + tax + "\n\n" + "Total income (Inclusion of Tax)" + " = " + finalValue);
             }
-
     }
 
 }

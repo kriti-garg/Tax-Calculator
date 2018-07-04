@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="index1.developer.acadview.com.taxcalculator.MainActivity">
+    tools:context="com.kriti.taxcalculator.MainActivity">
 
     <Button
         android:id="@+id/income"

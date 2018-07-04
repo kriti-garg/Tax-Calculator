@@ -8,7 +8,7 @@ import android.content.ContentResolver;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-final class TaxContract {
+public final class TaxContract {
     private TaxContract(){ }
     public static final String CONTENT_AUTHORITY = "com.kriti.taxcalculator";
 

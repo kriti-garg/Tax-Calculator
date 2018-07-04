@@ -19,8 +19,8 @@ public class GstActivity extends AppCompatActivity  implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gst);
-        ListView noteListView = findViewById(R.id.listview);
-        View emptyView = findViewById(R.id.text);
+        ListView noteListView = findViewById(R.id.list);
+        View emptyView = findViewById(R.id.empty_view);
         noteListView.setEmptyView(emptyView);
         mCursorAdapter = new TaxAdapter(this);
         noteListView.setAdapter(mCursorAdapter);

@@ -2,6 +2,7 @@ package com.kriti.taxcalculator;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +24,16 @@ public class TaxAdapter extends CursorAdapter {
     public void bindView(View view, Context context, Cursor cursor){
         TextView itemTextView = view.findViewById(R.id.itemText);
         int itemColumnIndex= cursor.getColumnIndex(TaxContract.TaxEntry.COLUMN_ITEMS);
-        String title = cursor.getString(itemColumnIndex);
+        int gstColumnIndex= cursor.getColumnIndex(TaxContract.TaxEntry.COLUMN_TAX);
+        final String title = cursor.getString(itemColumnIndex);
+        final Integer gst = cursor.getInt(gstColumnIndex);
         itemTextView.setText(title);
-
+        itemTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.showAlertBox(title, gst);
+            }
+        });
 
     }
     public View newView(Context context, Cursor cursor, ViewGroup parent){

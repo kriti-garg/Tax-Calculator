@@ -24,6 +24,6 @@ final class TaxContract {
         public final static String TABLE_NAME ="T_detail";
         public final static String _ID = BaseColumns._ID;
         public final static String COLUMN_ITEMS ="items";
-        public final static String COLUMN_TAX = "TAX%";
+        public final static String COLUMN_TAX = "TAX";
     }
 }

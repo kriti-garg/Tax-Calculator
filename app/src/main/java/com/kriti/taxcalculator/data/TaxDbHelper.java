@@ -19,12 +19,12 @@ public class TaxDbHelper extends SQLiteOpenHelper {
             super(context,DATABASE_NAME,null,DATABASE_VERSION);
         }
     public void onCreate(SQLiteDatabase db){
-        String SQL_CREATE_REG_DETAILS_TABLE = "CREATE TABLE " + TaxEntry.TABLE_NAME + " ("
+        String SQL_CREATE_TAX_DETAILS_TABLE = "CREATE TABLE " + TaxEntry.TABLE_NAME + " ("
                 + TaxEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 +TaxEntry.COLUMN_ITEMS + " TEXT NOT NULL UNIQUE, "
                 +TaxEntry.COLUMN_TAX + " INTEGER NOT NULL);";
-        Log.v("RegDbHelper" , "create table: " + SQL_CREATE_REG_DETAILS_TABLE);
-        db.execSQL(SQL_CREATE_REG_DETAILS_TABLE);
+        Log.v("TaxDbHelper" , "create table: " + SQL_CREATE_TAX_DETAILS_TABLE);
+        db.execSQL(SQL_CREATE_TAX_DETAILS_TABLE);
 
     }
     public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion){ }
@@ -47,7 +47,7 @@ public class TaxDbHelper extends SQLiteOpenHelper {
         );
         return  cursor;
     }
-    public long insertDetails(String itemsString , String taxString){
+    public long insertDetails(String itemsString , Integer taxString){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(TaxContract.TaxEntry.COLUMN_ITEMS,itemsString);

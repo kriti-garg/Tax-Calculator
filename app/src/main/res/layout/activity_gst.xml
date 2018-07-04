@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -32,8 +33,41 @@
                 android:paddingTop="4dp"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:textColor="#A2AAB0" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/finalamountstr"
+                android:text="Final Amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:paddingTop="3dp"
+                android:fontFamily="sans-serif"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/finalamount"
+                android:layout_below="@+id/finalamountstr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:paddingTop="5dp"
+                android:fontFamily="serif-monospace"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_weight="1"/>
         </RelativeLayout>
     </RelativeLayout>
-
 
 </android.support.design.widget.CoordinatorLayout>

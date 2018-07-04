@@ -31,6 +31,7 @@ public class TaxAdapter extends CursorAdapter {
         itemTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i("title",title);
                 activity.showAlertBox(title, gst);
             }
         });

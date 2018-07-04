@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.kriti.taxcalculator.data.TaxContract;
 
@@ -22,30 +23,37 @@ public class GstActivity extends AppCompatActivity  implements LoaderManager.Loa
 
     private static final int PRODUCT_LOADER = 0;
     private TaxAdapter mCursorAdapter;
+    public TextView finalAmount,finalAmountstr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gst);
         ListView noteListView = findViewById(R.id.list);
-        View emptyView = findViewById(R.id.empty_view);
+        View emptyView = findViewById(R.id.empty_text);
+        finalAmount = findViewById(R.id.finalamount);
+        finalAmountstr = findViewById(R.id.finalamountstr);
+        finalAmount.setVisibility(View.GONE);
+        finalAmountstr.setVisibility(View.GONE);
         noteListView.setEmptyView(emptyView);
         mCursorAdapter = new TaxAdapter(this);
         noteListView.setAdapter(mCursorAdapter);
         getLoaderManager().initLoader(PRODUCT_LOADER,null,this);
     }
 
-    public void showAlertBox(String item, Integer gst) {
+    public void showAlertBox(final String item, Integer gst) {
+        Log.i("item",item);
+        Log.i("gst",gst.toString());
+
         final EditText amountEditText = new EditText(this);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Enter Amount");
         builder.setMessage("Amount of " + item);
         builder.setView(amountEditText);
-        String amountEntered = amountEditText.getText().toString().trim();
-        final Double amount = Double.valueOf(amountEntered).doubleValue();
+
         final Integer tax = gst;
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                calculate(amount, tax);
+                calculate(amountEditText,tax, item);
             }
         });
 
@@ -61,8 +69,17 @@ public class GstActivity extends AppCompatActivity  implements LoaderManager.Loa
         alertDialog.show();
     }
 
-    private void calculate(Double amount, Integer gst) {
-
+    private void calculate(EditText amountEditText, Integer gst, String item) {
+        String amountEntered = amountEditText.getText().toString().trim();
+        if(!amountEntered.equals("")) {
+            final Double amount = Double.valueOf(amountEntered).doubleValue();
+            Double tax = (0.01 * gst * amount);
+            Double finalValue = tax + amount;
+            finalAmount.setVisibility(View.VISIBLE);
+            finalAmountstr.setVisibility(View.VISIBLE);
+            finalAmountstr.setText("Final Amount of " + item + " after GST of " + gst + "%");
+            finalAmount.setText(" " + finalValue + " ");
+        }
     }
 
     @Override

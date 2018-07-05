@@ -13,13 +13,13 @@ import com.kriti.taxcalculator.data.TaxContract.TaxEntry;
  */
 
 public class TaxDbHelper extends SQLiteOpenHelper {
-        private static final String DATABASE_NAME = "T_detail.db";
+        private static final String DATABASE_NAME = "GST.db";
         private static final int DATABASE_VERSION = 1;
         public TaxDbHelper(Context context){
             super(context,DATABASE_NAME,null,DATABASE_VERSION);
         }
     public void onCreate(SQLiteDatabase db){
-        String SQL_CREATE_TAX_DETAILS_TABLE = "CREATE TABLE " + TaxEntry.TABLE_NAME + " ("
+        String SQL_CREATE_TAX_DETAILS_TABLE = "CREATE TABLE IF NOT EXISTS " + TaxEntry.TABLE_NAME + " ("
                 + TaxEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 +TaxEntry.COLUMN_ITEMS + " TEXT NOT NULL UNIQUE, "
                 +TaxEntry.COLUMN_TAX + " INTEGER NOT NULL);";

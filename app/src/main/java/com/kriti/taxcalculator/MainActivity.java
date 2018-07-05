@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         gst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //insertData();
+                insertData();
                 Intent intent = new Intent(MainActivity.this,GstActivity.class);
                 startActivity(intent);
 

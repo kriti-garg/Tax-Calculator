@@ -14,7 +14,7 @@ public final class TaxContract {
 
     private static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
-    public static final String PATH_TAX = "T_detail";
+    public static final String PATH_TAX = "GST";
     public final static class TaxEntry implements BaseColumns{
         public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_TAX);
         public static final String CONTENT_ITEM_TYPE =

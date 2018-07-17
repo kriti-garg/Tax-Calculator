@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class IncomeActivity extends AppCompatActivity {
     public String editIncome;
@@ -36,33 +37,42 @@ public class IncomeActivity extends AppCompatActivity {
     void intialise(){
         editIncome = et_Income.getText().toString().trim();
         //intIncome = Integer.parseInt(editIncome);
-        intIncome = Double.valueOf(editIncome).doubleValue();
 
+        if(validate()){
+            intIncome = Double.valueOf(editIncome).doubleValue();
+        }
     }
-    void check(){
-        if(intIncome>=0 && intIncome<=250000){
-            tax = 0.0;
-            finalValue = tax + intIncome;
-            tv_textarea.setText("Tax on your income " + editIncome + " = " + tax + "\n\n" + "Total income (Inclusion of Tax)" + " = " + finalValue);
 
-        }else
-            if(intIncome>250000.0 && intIncome<=500000.0){
-            tax = (0.05*(intIncome-250000.0));
-            finalValue = tax + intIncome;
-            tv_textarea.setText("Tax on your income " + editIncome + " = " + tax + "\n\n" + "Total income (Inclusion of Tax)" + " = " + finalValue);
-            }
-        else
-            if(intIncome>500000.0 && intIncome<=1000000.0){
-            tax = 25000 + 0.20*(intIncome-500000);
-            finalValue = tax + intIncome;
-            tv_textarea.setText("Tax on your income " + editIncome + " = " + tax + "\n\n" + "Total income (Inclusion of Tax)" + " = " + finalValue);
-            }
-        else
-            if(intIncome>1000000.0) {
+    public boolean validate(){
+        boolean valid =true;
+        if(editIncome.isEmpty()){
+            et_Income.setError("Please enter valid income");
+            valid=false;
+        }
+        return valid;
+    }
+
+    void check(){
+        if(validate()){
+            if (intIncome >= 0 && intIncome <= 250000) {
+                tax = 0.0;
+                finalValue = tax + intIncome;
+                tv_textarea.setText("Tax on your income " + editIncome + " = " + tax + "\n\n" + "Total income (Inclusion of Tax)" + " = " + finalValue);
+
+            } else if (intIncome > 250000.0 && intIncome <= 500000.0) {
+                tax = (0.05 * (intIncome - 250000.0));
+                finalValue = tax + intIncome;
+                tv_textarea.setText("Tax on your income " + editIncome + " = " + tax + "\n\n" + "Total income (Inclusion of Tax)" + " = " + finalValue);
+            } else if (intIncome > 500000.0 && intIncome <= 1000000.0) {
+                tax = 25000 + 0.20 * (intIncome - 500000);
+                finalValue = tax + intIncome;
+                tv_textarea.setText("Tax on your income " + editIncome + " = " + tax + "\n\n" + "Total income (Inclusion of Tax)" + " = " + finalValue);
+            } else if (intIncome > 1000000.0) {
                 tax = 112500.0 + 0.30 * (intIncome - 1000000);
                 finalValue = tax + intIncome;
                 tv_textarea.setText("Tax on your income " + editIncome + " = " + tax + "\n\n" + "Total income (Inclusion of Tax)" + " = " + finalValue);
             }
+        }
     }
 
 }

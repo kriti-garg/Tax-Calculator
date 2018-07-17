@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kriti.taxcalculator.data.TaxContract;
 
@@ -79,6 +80,10 @@ public class GstActivity extends AppCompatActivity  implements LoaderManager.Loa
             finalAmountstr.setVisibility(View.VISIBLE);
             finalAmountstr.setText("Final Amount of " + item + " after GST of " + gst + "%");
             finalAmount.setText(" " + finalValue + " ");
+        }
+        else
+        {
+            Toast.makeText(this,"Please enter valid value",Toast.LENGTH_SHORT).show();
         }
     }
 
